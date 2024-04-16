@@ -3,7 +3,8 @@
 ### Installation
 1. Clone this repo
 2. Install the required packages by running ```pip install -r requirements.txt.```
-3. Run server: ```python manage.py runserver```
+3. cd  into ```ielts_checker```
+4. Run server: ```python manage.py runserver```
 
 
 ### Thành viên nhóm: 
