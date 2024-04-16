@@ -1,5 +1,12 @@
 # Nhóm 91
-Thành viên nhóm: 
+
+### Installation
+1. Clone this repo
+2. Install the required packages by running ```pip install -r requirements.txt.```
+3. Run server: ```python manage.py runserver```
+
+
+### Thành viên nhóm: 
 
 -Nguyễn Nam Dương - 22022512\
 -Dương Minh Đức - 22022606\
