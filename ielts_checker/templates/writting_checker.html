@@ -1,8 +1,8 @@
-{% extends "partials/base.html" %}
+{% extends "base.html" %}
 {% block content %}
 <h1> Writting checker page</h1>
 
-<form action="/writting-checker/check", method="POST">
+<form action="{% url 'writting-checker' %}", method="POST">
     {% csrf_token %}
     <table>
         {{form}}
