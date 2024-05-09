@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h1> Writting result page</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <!-- Write your content here -->
+        <h3>Task: {{task}}</h3>
+        <p>Writting: {{writting}}</p>
+    </div>
+    <div class="col-md-4">
+        <h6>Score: {{result.score}}</h6>
+        <h6>Feedback: {{result.feed_back}}</h6>
+    </div>
+</div>
+
+{% endblock %}
+
+
