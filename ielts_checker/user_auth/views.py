@@ -5,10 +5,6 @@ from django.contrib.auth import authenticate, logout, login
 
 from .forms import RegisterForm, LoginForm
 
-# Create your views here.
-def home_page(request):
-    return render(request, 'home_page.html')
-
 def user_register(request):
     form = RegisterForm()
 
