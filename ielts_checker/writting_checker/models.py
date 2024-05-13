@@ -14,3 +14,4 @@ class UserWrittings(models.Model):
     score = models.FloatField()
     feed_back = models.TextField()
     date = models.DateField(auto_now_add=True)
+    public_status = models.BooleanField(default=False)
