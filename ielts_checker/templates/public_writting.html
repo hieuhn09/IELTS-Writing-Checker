@@ -1,4 +1,40 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/history.css' %}">
+{% endblock %}
+
 {% block content %}
-<h1>This is Public writting page</h1>
+
+<div style="background-color: rgb(100, 204, 197);">
+    <h1>This is Public writting page</h1>
+
+    <div class="d-flex align-items-center flex-column">
+        {% for data in user_data %}
+        <div class="card m-md-3 col-6">
+            <div class="card-body col-8 " style="border-right: 1px solid #ccc;">
+                <div class="mb-1 text-muted">{{data.date}}</div>
+                <a data-bs-toggle="collapse" href="#writting-{{ forloop.counter }}" role="button" aria-expanded="false">
+                    <h5 class="card-title" >{{data.task}}</h5>
+                </a>
+                <div class="collapse" id="writting-{{ forloop.counter }}">
+                    {{data.writting}}
+                </div>
+                
+                <form action="/history" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="task" value="{{ data.task }}">
+                    <input type="hidden" name="writting" value="{{ data.writting }}">
+                    <button type="submit" class="btn btn-primary">See more</button>
+                </form>
+            </div>
+            <div class="col-4">
+                <h3>Score: {{data.score}}</h3>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
 {% endblock %}
