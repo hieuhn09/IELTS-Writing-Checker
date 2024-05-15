@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h1> Writting history page</h1>
+
+<ul>
+    {% for data in user_data %}
+    <li>
+        <p> Date: {{ data.date }} </p>
+        <p> Task: {{ data.task }} </p>
+        <p> Writting: {{ data.writting }} </p>
+        <p> Score: {{ data.score }} </p>
+        <p> Feed back: {{ data.feed_back }} </p>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+
+

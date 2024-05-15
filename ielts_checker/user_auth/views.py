@@ -33,8 +33,9 @@ def user_login(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                print('post: valid')
                 return redirect('home-page')
+            else :
+                HttpResponse("Invalid username or password")
     
     return render(request, 'login.html', {'form': form})
 

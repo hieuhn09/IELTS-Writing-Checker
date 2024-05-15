@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h1> Writting checker page</h1>
+
+<form action="{% url 'writting-checker' %}", method="POST">
+    {% csrf_token %}
+    <table>
+        {{form}}
+        <button type="submit">Check Writting!</button>
+    </table>
+</form>
+
+<h6>Score: {{result.score}}</h6>
+<h6>Feedback: {{result.feed_back}}</h6>
+{% endblock %}
+
+
