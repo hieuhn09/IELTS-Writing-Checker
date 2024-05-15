@@ -11,14 +11,14 @@
 This web application is developed to automatically grade Task 2 writing of the IELTS exam. The application will assess essays based on certain criteria and provide automatic scoring using ChatGPT API.
 
 ### User scenarios:
-####1. Long's scenario : College student preparing for IELTS test
+#### 1. Long's scenario : College student preparing for IELTS test
 Long, an aspiring IELTS test-taker dedicated to achieving a high band score in the Writing section, seeks an efficient and dependable tool to refine his writing abilities and receive constructive feedback on his essays. With this goal in mind, Long anticipates a seamless experience with the website. He expects to easily create a user account, providing basic information such as name, email, and password, followed by a confirmation email to verify his account upon successful registration.
 
 Once logged in, Long envisions a straightforward process for essay submission, allowing him to either copy and paste his essay content or upload a text file directly on the website. With his essay submitted, Long eagerly awaits the automatic grading process, relying on the ChatGPT API to assess his writing against IELTS standards accurately and efficiently. He anticipates receiving detailed feedback highlighting both the strengths and areas for improvement in his writing, accompanied by specific suggestions for enhancing vocabulary, grammar, coherence, and overall essay structure.
 
 In addition to receiving feedback on individual essays, Long desires the ability to track his progress over time through a personalized dashboard. He envisions accessing key metrics such as the number of essays submitted, average scores, and trends in his writing performance, allowing him to monitor his improvement and identify areas requiring further attention. By meeting these expectations, the website will empower Long to enhance his writing skills effectively, providing valuable support on his journey to success in the IELTS exam.
 
-####2. Ms.Trang's scenario : Using the website for quickly grading her students
+#### 2. Ms.Trang's scenario : Using the website for quickly grading her students
 Ms. Trang, a dedicated IELTS teacher with a commitment to her students' success, seeks a streamlined solution for efficiently grading their writing assignments. As an educator juggling various responsibilities, Ms. Trang envisions leveraging a user-friendly website tailored to her needs. She anticipates a seamless account creation process, allowing her to register as a teacher effortlessly and gain access to a dedicated dashboard designed for grading purposes.
 
 Upon logging in, Ms. Trang expects to navigate to the essay grading section of the website, where she can conveniently view and assess her students' submitted essays. With a clear interface displaying essential details such as student names, submission dates, and essay topics, she aims to efficiently review each essay, provide personalized feedback, and assign grades accordingly. Leveraging the ChatGPT API for automatic grading assistance, Ms. Trang values the preliminary evaluations provided while also retaining the flexibility to apply her expertise and insights in refining the feedback and grades.
