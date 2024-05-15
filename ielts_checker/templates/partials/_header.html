@@ -19,10 +19,10 @@
       {% if user.is_authenticated %}
       <div class="dropdown">
         <a class="text-white link-dark text-decoration-none dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          <img src="{{ request.user.userprofile.profile_pic.url }}" alt="mdo" width="42" height="42" class="rounded-circle">
         </a>
         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
           <li><a class="dropdown-item" href="{% url 'writting-history' %}">History</a></li>
           <li><hr class="dropdown-divider"></li>
           <li><a class="dropdown-item" href="{% url 'user-logout' %}">Sign out</a></li>

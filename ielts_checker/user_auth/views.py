@@ -3,7 +3,8 @@ from django.http import HttpResponse
 
 from django.contrib.auth import authenticate, logout, login
 
-from .forms import RegisterForm, LoginForm
+from .models import UserProfile
+from .forms import RegisterForm, LoginForm, UserForm, UserProfileForm
 
 def user_register(request):
     form = RegisterForm()
@@ -38,3 +39,17 @@ def user_logout(request):
     logout(request)
 
     return redirect('home-page')
+
+def profile(request):
+    if request.method == 'POST':
+        user_form = UserForm(request.POST, instance=request.user)
+        profile_form = UserProfileForm(request.POST, request.FILES, instance=request.user.userprofile if hasattr(request.user, 'userprofile') else UserProfile.objects.create(user=request.user))
+        # print(request.POST.get('first_name'))
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            return redirect('profile')
+    if request.method == 'GET':
+        user_form = UserForm(instance=request.user)
+        profile_form = UserProfileForm(instance=request.user.userprofile if hasattr(request.user, 'userprofile') else UserProfile.objects.create(user=request.user))
+    return render(request, 'profile.html', context={'user_form': user_form, 'profile_form': profile_form})
