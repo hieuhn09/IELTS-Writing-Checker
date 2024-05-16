@@ -8,12 +8,12 @@
 
 #cover {
     height: 100vh; 
-    background-color: rgb(23, 107, 135)
+    background-color: #C0EEF2
 }
 
 #writting-form-div {
-    background-color: rgb(218, 255, 251);
-    width: 50%;
+    /* background-color: rgb(218, 255, 251); */
+    /* width: 50%; */
     height: 700px;
     padding: 20px;
     border-radius: 50px;
@@ -23,10 +23,11 @@
 
 #writting-form {
     height: 900px;
+    background-color: #E9F8F9;
 }
 
 #public-writting {
-    background-color: rgb(100, 204, 197)
+    background-color: #537FE7;
 }
 
 .carousel-item {

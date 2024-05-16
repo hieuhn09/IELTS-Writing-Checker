@@ -15,3 +15,33 @@
     border-radius: 0.35rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
+.card-hover:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.task-button:hover {
+    color: red !important;
+}   
+.username-link:hover {
+    color: red;
+}
+
+#public-page{
+    background-color: #E9F8F9;
+}
+
+#history-page{
+    background-color: #E9F8F9;
+}
+
+#register-page{
+    background-color: #E9F8F9;
+}
+
+#login-page{
+    background-color: #E9F8F9;
+}
+
+#profile-page{
+    background-color: #E9F8F9;
+}

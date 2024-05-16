@@ -7,6 +7,7 @@ from .forms import WrittingForm
 from .get_result import get_writting_result
 from .models import UserWrittings
 from user_auth.models import UserProfile
+from django.contrib.auth.models import User
 
 def home_page(request):
     form = WrittingForm()
@@ -67,7 +68,7 @@ def public_writting(request):
         print(public_writtings)
         return render(request, 'public_writting.html', {'public_writtings': public_writtings})
 
-@login_required(login_url='user-login')
+# @login_required(login_url='user-login')
 def writting_history(request):
     if request.method == 'POST':
         task = request.POST.get('task')
@@ -79,10 +80,15 @@ def writting_history(request):
 
         return redirect('writting-result')
     else:
-        current_user = request.user
+        user_id = int(request.GET.get('user_id'))
+        user = User.objects.get(id=user_id)
 
-        user_data = UserWrittings.objects.filter(user_name=current_user)
-        return render(request, 'writting_history.html', {'user_data': user_data})
+        if request.user.id == user_id:
+            user_data = UserWrittings.objects.filter(user_name=user)
+        else:
+            user_data = UserWrittings.objects.filter(user_name=user, public_status=True)
+
+        return render(request, 'writting_history.html', {'user_data': user_data, 'user': user})
 
 def toggle_public(request):
     if request.method == 'POST':
@@ -90,6 +96,6 @@ def toggle_public(request):
         writting = UserWrittings.objects.get(id=writting_id)
         writting.public_status = not writting.public_status
         writting.save()
-        return redirect('writting-history')
+        return redirect(f"/history?user_id={writting.user_name.id}")
     else:
         return HttpResponseBadRequest("This URL only supports POST requests")
