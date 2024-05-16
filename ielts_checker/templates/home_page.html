@@ -16,10 +16,24 @@
 
 <div class="d-flex justify-content-center align-items-center" id="writting-form">
     <div id="writting-form-div" class="col-10 col-md-8 col-lg-6">
-        <h1 class="mb-4">Start writing</h1>
+        <h1 class="mb-4 text-center">Start writing</h1>
         <form action="{% url 'home-page' %}" method="POST" class="flex-grow-1">
             {% csrf_token %}
-            {{ form.as_p }}
+            <div class="form-group m-2">
+                <label for="{{ form.task.id_for_label }}"><h5>Task:</h5></label>
+                {{ form.task}}
+            </div>
+            <div class="form-group mt-2 d-flex justify-content-center align-items-center">
+                <button class="btn btn-dark">
+                    Auto generate (chua lam)
+                </button>
+            </div>
+            <hr>
+            <div class="form-group m-2">
+                <label for="{{ form.writting.id_for_label }}"><h5>Writting:</h5></label>
+                {{ form.writting }}
+            </div>
+
             {{ form.media}}
         
             <button class="btn btn-dark" type="submit" style="width: 100%;">Submit!</button>

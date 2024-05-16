@@ -54,23 +54,13 @@
                                             </a>
         
                                             <div class="dropdown-menu dropdown-menu-end">
-                                                <form action="/toggle-public" class="dropdown-item" method="post">
+                                                <form action="/public" class="dropdown-item" method="post">
                                                     {% csrf_token %}
-                                                    <input type="hidden" name="id" value="{{ data.id }}">
-                                                    {% if data.public_status %}
-                                                    <button type="submit" class="btn btn-outline-warning" style="width: 100%;">
-                                                        Set to Private
-                                                    </button>
-                                                    {% else %}
-                                                    <button type="submit" class="btn btn-outline-success" style="width: 100%;">
-                                                        Set to Public
-                                                    </button>
-                                                    {% endif %}
+                                                    <input type="hidden" name="task" value="{{ data.task }}">
+                                                    <input type="hidden" name="writting" value="{{ data.writting }}">
+                                                    <button type="submit" class="btn btn-outline-primary" style="width: 100%;">See details</button>
                                                 </form>
-                                                <div class="dropdown-divider"></div>
-                                                <div class="dropdown-item">
-                                                    <button class="btn btn-outline-danger" style="width: 100%;">Delete</button>
-                                                </div>
+            
 
                                             </div>
                                         </div>
