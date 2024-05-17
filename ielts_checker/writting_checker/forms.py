@@ -6,6 +6,6 @@ class WrittingForm(forms.ModelForm):
         model = UserWrittings
         fields = ['task', 'writting']
         widgets = {
-            'task': forms.TextInput(),
+            'task': forms.TextInput(attrs={'class': 'form-control'}),
             'writting': forms.Textarea(),
         }

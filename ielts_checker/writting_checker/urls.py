@@ -2,6 +2,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('check', views.writting_checker, name='writting-checker'),
+    path('', views.home_page, name='home-page'),
+    path('result', views.result, name='writting-result'),
     path('history', views.writting_history, name='writting-history'),
+    path('public', views.public_writting, name='public-writting'),
+    path('toggle-public', views.toggle_public, name='toggle-public')
 ]

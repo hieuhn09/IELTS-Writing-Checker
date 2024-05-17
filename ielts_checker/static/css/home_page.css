@@ -1,0 +1,79 @@
+.h1{
+    color: red;
+}
+
+.django-ckeditor-widget{
+    width: 100%;
+}
+
+#cover {
+    height: 100vh; 
+    background-color: #C0EEF2
+}
+
+#writting-form-div {
+    /* height: 700px; */
+    padding: 20px;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 22px 70px 4px;
+    overflow: auto;
+}
+
+#writting-form {
+    height: 900px;
+    background-color: #E9F8F9;
+}
+
+#public-writting {
+    background-color: #537FE7;
+}
+
+.carousel-item {
+    padding: 10px;
+}
+
+/* Carousel style */
+.carousel-inner {
+    padding: 1em;
+}
+.card {
+    margin: 0 0.5em;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+    border: none;
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+}
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: #e1e1e1;
+    width: 6vh;
+    height: 6vh;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+@media (min-width: 1028px) {
+    .carousel-item {
+        margin-right: 0;
+        flex: 0 0 33.333333%;
+        display: block;
+    }
+    .carousel-inner {
+        display: flex;
+    }
+}
+.card {
+    height: 30em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card {
+    max-height: 100%;
+}
+@media (max-width: 1028px) {
+    .card {
+        height: 20em;
+    }
+}
