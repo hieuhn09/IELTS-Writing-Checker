@@ -1,11 +1,11 @@
 # IELTS Writing Checker
 ### Members: 
 
--Nguyễn Nam Dương - 22022512\
--Dương Minh Đức - 22022606\
--Hoàng Đăng Khoa - 22022548\
--Nguyễn Công Hiếu - 22022512\
--Long Trí Thái Sơn - 22022653
+- Nguyen Nam Duong - 22022512
+- Duong Minh Duc - 22022606
+- Hoang Dang Khoa - 22022548
+- Nguyen Cong Hieu - 22022510
+- Long Tri Thai Son - 22022653
 
 ### Introduction:
 This web application is developed to automatically grade Task 2 writing of the IELTS exam. The application will assess essays based on certain criteria and provide automatic scoring using ChatGPT API.
