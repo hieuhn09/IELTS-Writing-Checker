@@ -1,4 +1,5 @@
 import google.generativeai as genai
+import re
 
 genai.configure(api_key="AIzaSyAFejakqWRITENoOl5qSDxFQNCqiPdBxak")
 
@@ -40,6 +41,7 @@ It is true that millions of years ago, many ancient species of animals, such as 
 Other justifications  for saving wild animals involve  the significant roles that they play in not only the balance of the ecosystem but also our lives. Everything in nature is connected , and if one species becomes extinct, many other animals and even plants will suffer as the food chain is disrupted. Wild animals also have great aesthetic and socio-cultural values. They contribute to our rich bio-diversity  that makes this planet a beautiful place. In numerous places around the world, many types of animals play an important role in different cultures. For example, in some religions, cows are revered and worshiped as gods.
 The disappearance of many animal species does not always occur as a natural process but as a consequence of our doings . It is our obligation to help preserve wild animals because their extinction will have a severe influence on many important aspects of our lives.
 
+## Feedback :
 **Vocabulary and Grammar Enhancement**
 -   some people believe-> certain individuals hold the belief
 Explanation: Replacing "some people believe" with "certain individuals hold the belief" elevates the language by using more formal terminology and avoids the use of colloquial language.
@@ -120,7 +122,6 @@ Band Score for Grammatical Range and Accuracy: 7
     +	Detailed explanation: The essay generally maintains a high level of grammatical accuracy with few errors. There are a few minor issues such as subject-verb agreement ("activities have been devastating") and article usage ("in the balance of the ecosystem"). Punctuation is appropriately used to clarify meaning and structure sentences effectively. For instance, commas are used correctly to set off introductory phrases and separate items in a series.
     +	How to improve: To improve grammatical accuracy further, pay closer attention to subject-verb agreement throughout the essay. Ensure that articles ('a', 'the') are used appropriately before singular nouns. Review the use of prepositions to ensure precise expression ('in not only the balance of the ecosystem but also in our lives'). Consider revising sentences for clarity and conciseness, avoiding any potential ambiguity caused by complex structures or word choice.
 **Overall**
-Overall Score : 7.25
 Overall, this essay exhibits a strong command of grammatical structures and punctuation, contributing to its coherence and clarity. Continued focus on incorporating a wider variety of sentence structures and refining grammatical accuracy will further enhance the overall quality of writing.
 """
 
@@ -134,6 +135,7 @@ First of all , the increase in the production of consumer products harms the env
 Actions must be taken as soon as possible  to minimize the negative impacts on the environment arising from the increasing amount of consumer goods. First, companies should promote the use of eco-friendlier  materials. For example , the giant coffee chain Starbucks  has recently replaced  plastic straws with reusable alternatives made of materials like paper or bamboo. in addition , many governments are also encouraging the development of more sustainable manufacturing processes. For instance, many states in the U.S  offer tax breaks and incentives for businesses using renewable energy, and some firms are even allowed to purchase green energy at cheaper prices than traditional fossil fuels.
 In conclusion, there are two main reasons why the environment is severely impacted by the increase in the production of consumer goods. To address this issue, governments and companies must join hands  to make the production lines more environmentally friendly by switching to greener materials.
 
+## Feedback :
 **Vocabulary and Grammar Enhancement**
 -   Nowadays-> In contemporary times
 Explanation: "Nowadays" is colloquial and less formal compared to "In contemporary times," which is more suitable for academic writing.
@@ -242,11 +244,57 @@ Band Score for Grammatical Range and Accuracy: 7
     +	Detailed explanation: Overall, the essay demonstrates a strong command of grammar and punctuation. Sentences are structured correctly, and punctuation marks are used appropriately to clarify meaning and enhance readability. For example, the essay employs commas effectively to separate items in a list ("Water sources are contaminated, and the air is severely polluted...") and to set off introductory phrases ("First of all, the increase in the production of consumer products harms the environment in two ways:..."). Moreover, the essay maintains subject-verb agreement and uses articles, prepositions, and conjunctions accurately.
     +	How to improve: While the essay's grammar and punctuation are largely accurate, some minor errors are present. Proofreading for consistency in verb tense usage and ensuring parallelism in structures can further refine the essay's clarity and cohesion. Additionally, paying attention to sentence fragments and run-on sentences can enhance the overall fluency of the writing.
 **Overall**
-Overall Score : 7.25
 Overall, the essay demonstrates strong proficiency in grammatical range and accuracy, contributing to its effective communication of ideas. By incorporating a wider variety of sentence structures and maintaining precise grammar and punctuation usage, the essay can further elevate its coherence and sophistication, potentially leading to an even higher band score.
 """
 
-def get_writing_result(topic, assignment):
+# The sample to test API
+
+topic = (
+    """
+  Scientists and news media are presenting ever more evidence of climate change. Governments cannot expected to solve this problem. It is the responsibility of individuals to change their lifestyles prevent further damage. What are your views?
+"""
+)
+assignment = (
+    """
+    Recently scientists worried climate change have urged governments to introduce measures to reduce the greenhouse gas emissions that are seen as its main cause. Simultaneously, politicians and environmentalists urged individuals to make changes to their lifestyles. I shall argue that governments and individuals should join responsibility for this problem. 
+
+Firstly, industry for a large proportion of greenhouse gas emissions, and this can only be controlled by government action. Measures could taken to discourage pollution, such as limiting or taxing the use of fossil fuels. Alternatively, subsidies could offered to industries to clean up their production processes. If these were adopted, I believe that businesses would regard pollution as a financial issue. 
+
+Secondly, the discussion between governments can ensure that solutions are successful. The Kyoto agreement, example, tried to reach a global agreement on how to address the problem. Without such operating, it seems to me that efforts to reduce fuel consumption are unlikely to be effective. 
+
+However, national international policies will only succeed if individuals also change their lifestyles. For example, could think more carefully about how they use energy in their homes. By using less electricity, installing efficient light bulbs and electrical appliances, or investing in solar panels, individuals can make a real difference. In addition, I think individual attitudes to transport need change. Instead of making trips by car, people could choose to walk, cycle, or take a bus. Since cars a major source of the problem, changing our behavior in this area would have a major impact. In conclusion, I would maintain only a combination of an international agreement, national policies, and changes in individual behavior will succeed in preventing further damage to the environment."""
+)
+
+
+def calculate_overall_score(text):
+    task_response_match = re.search(r'Band Score for Task Response:\s*(\d+)', text)
+    coherence_cohesion_match = re.search(r'Band Score for Coherence and Cohesion:\s*(\d+)', text)
+    lexical_resource_match = re.search(r'Band Score for Lexical Resource:\s*(\d+)', text)
+    grammatical_range_accuracy_match = re.search(r'Band Score for Grammatical Range and Accuracy:\s*(\d+)', text)
+    
+    if task_response_match and coherence_cohesion_match and lexical_resource_match and grammatical_range_accuracy_match:
+        # Convert string to int
+        task_response = int(task_response_match.group(1))
+        coherence_cohesion = int(coherence_cohesion_match.group(1))
+        lexical_resource = int(lexical_resource_match.group(1))
+        grammatical_range_accuracy = int(grammatical_range_accuracy_match.group(1))
+        
+        # Compute sum and avg band score
+        total_score = task_response + coherence_cohesion + lexical_resource + grammatical_range_accuracy
+        average_score = total_score / 4
+        
+        # Round followed by IELTS principle
+        if average_score - int(average_score) >= 0.75:
+            overall_score = int(average_score) + 1
+        elif average_score - int(average_score) >= 0.25:
+            overall_score = int(average_score) + 0.5
+        else:
+            overall_score = int(average_score)
+        
+        return overall_score
+    return None
+
+def get_writing_feedback(topic, assignment):
     prompt_part = [
     """
 You are a highly skilled IELTS instructor, tasked with effectively correcting IELTS Writing Task 2 submissions.
@@ -264,6 +312,7 @@ f"""Please follow the instructions below and you must use the form provided:
 **Topic: {topic}
 **Assignment: {assignment}
 ## Feedback :
+You must respond only only content of Feedback don't need ## Feedback
     """
 ]
     prompt = ''.join(prompt_part)
@@ -271,8 +320,19 @@ f"""Please follow the instructions below and you must use the form provided:
     model = genai.GenerativeModel('gemini-1.5-pro-latest',generation_config=generation_config,safety_settings=safety_settings)
     response = model.generate_content(prompt, request_options={"timeout" : 200})
         
-    return {
-        'score': 7,
-        'feed_back': response.text
+
+    return response.text
+
+def get_writing_result(topic,assignment):
+    feedback = get_writing_feedback(topic=topic,assignment=assignment)
+    overall_score = calculate_overall_score(feedback)
+
+    return{
+        "score" : overall_score,
+        "feed_back" : feedback,
     }
 
+feedback = get_writing_feedback(topic=topic,assignment=assignment)
+
+print(feedback)
+print(calculate_overall_score(feedback))
