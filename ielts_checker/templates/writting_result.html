@@ -9,31 +9,36 @@
 {% block content %}
 <div class="d-flex justify-content-center"  id="profile-page">
     <div class="p-4 bg-light m-5" style="max-width: 90vw; width: 70%; height: auto; border-radius: 50px; box-shadow: rgba(0, 0, 0, 0.6) 0px 22px 70px 4px;">
+        <h1 class="fw-bold text-center text-danger">Writting result</h1>
+        <hr>
         <div class="row">
-            <div class="col-xl-8" style="border-right: 1px solid #ccc;">
-                <h6 class="mb-4">{{ writting_data.task }}</h6>
-                <form action="{% url 'download_doc' %}" method="post">
-                    {% csrf_token %}
-                    <input type="hidden" name="task" value="{{ writting_data.task }}">
-                    <input type="hidden" name="score" value="{{ writting_data.score}}">
-                    <input type="hidden" name="feed_back" value="{{ writting_data.feed_back }}">
-                    {{ form.writting}}
-                    {{ form.media }}
+            <div class="col-xl-7" style="border-right: 1px solid #ccc;">
+                <h5 class="mb-4">{{ writting_data.task }}</h5>
+                {{ form.writting}}
+                {{ form.media }}
 
-                    <div class="d-flex justify-content-center mt-4">
-                        <button class="btn btn-primary" type="submit" style="width: 60%;">Save as Word</button>
-    
-                    </div>
-                </form>
 
 
             </div>
-            <div class="col-xl-4">
-                Score: {{ writting_data.score }}
-                Feedback: {{ writting_data.feed_back }}
+            <div class="col-xl-5" style="height: 500px; overflow-y: auto;">
+                <h2>Overall Score:</h2>
+                {{ writting_data.score }}
+                <hr> 
+                {{ writting_data.feed_back|safe }}
             </div>
         </div>
+        <form action="{% url 'download_doc' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="task" value="{{ writting_data.task }}">
+            <input type="hidden" name="score" value="{{ writting_data.score}}">
+            <input type="hidden" name="feed_back" value="{{ writting_data.feed_back }}">
+            <input type="hidden" name="writting" value="{{ writting_data.writting }}">
 
+            <div class="d-flex justify-content-center mt-4">
+                <button class="btn btn-primary" type="submit" style="width: 60%;">Save as Word</button>
+
+            </div>
+        </form>
     </div>
 
 </div>
