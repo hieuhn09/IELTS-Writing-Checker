@@ -67,8 +67,7 @@
                                                 </button>
                                             </form>
                                             
-                                            <p class="text-muted mb-0 team-description">{{data.writting|truncatechars:50}}</p>
-                                        </div>
+                                            <p class="text-muted mb-0 team-description">{{data.writting|safe|truncatechars:50}}</p>                                        </div>
                                         <div class="col-4 text-center">
                                             <h4>Score</h4>
                                             {{ data.score }}
