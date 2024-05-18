@@ -7,6 +7,9 @@
 - Nguyen Cong Hieu - 22022510
 - Long Tri Thai Son - 22022653
 
+### Report and demo video:
+[Group91-IWC-Drive](https://drive.google.com/drive/folders/1YgZCqFx44DWOMdophT5vXYoi794CH7MB?usp=drive_link)
+
 ### Introduction:
 This web application is developed to automatically grade Task 2 writing of the IELTS exam. The application will assess essays based on certain criteria and provide automatic scoring using ChatGPT API.
 
