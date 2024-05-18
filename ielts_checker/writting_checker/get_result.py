@@ -1,5 +1,4 @@
 import google.generativeai as genai
-import json
 
 genai.configure(api_key="AIzaSyAFejakqWRITENoOl5qSDxFQNCqiPdBxak")
 
@@ -122,6 +121,7 @@ Band Score for Grammatical Range and Accuracy: 7
     +	Detailed explanation: The essay generally maintains a high level of grammatical accuracy with few errors. There are a few minor issues such as subject-verb agreement ("activities have been devastating") and article usage ("in the balance of the ecosystem"). Punctuation is appropriately used to clarify meaning and structure sentences effectively. For instance, commas are used correctly to set off introductory phrases and separate items in a series.
     +	How to improve: To improve grammatical accuracy further, pay closer attention to subject-verb agreement throughout the essay. Ensure that articles ('a', 'the') are used appropriately before singular nouns. Review the use of prepositions to ensure precise expression ('in not only the balance of the ecosystem but also in our lives'). Consider revising sentences for clarity and conciseness, avoiding any potential ambiguity caused by complex structures or word choice.
 **Overall**
+Overall Score : 7.25
 Overall, this essay exhibits a strong command of grammatical structures and punctuation, contributing to its coherence and clarity. Continued focus on incorporating a wider variety of sentence structures and refining grammatical accuracy will further enhance the overall quality of writing.
 """
 
@@ -244,6 +244,7 @@ Band Score for Grammatical Range and Accuracy: 7
     +	Detailed explanation: Overall, the essay demonstrates a strong command of grammar and punctuation. Sentences are structured correctly, and punctuation marks are used appropriately to clarify meaning and enhance readability. For example, the essay employs commas effectively to separate items in a list ("Water sources are contaminated, and the air is severely polluted...") and to set off introductory phrases ("First of all, the increase in the production of consumer products harms the environment in two ways:..."). Moreover, the essay maintains subject-verb agreement and uses articles, prepositions, and conjunctions accurately.
     +	How to improve: While the essay's grammar and punctuation are largely accurate, some minor errors are present. Proofreading for consistency in verb tense usage and ensuring parallelism in structures can further refine the essay's clarity and cohesion. Additionally, paying attention to sentence fragments and run-on sentences can enhance the overall fluency of the writing.
 **Overall**
+Overall Score : 7.25
 Overall, the essay demonstrates strong proficiency in grammatical range and accuracy, contributing to its effective communication of ideas. By incorporating a wider variety of sentence structures and maintaining precise grammar and punctuation usage, the essay can further elevate its coherence and sophistication, potentially leading to an even higher band score.
 """
 
