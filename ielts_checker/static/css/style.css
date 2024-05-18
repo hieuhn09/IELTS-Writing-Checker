@@ -25,6 +25,13 @@
 .username-link:hover {
     color: red;
 }
+.github-heading {
+    margin-left: 5cm;
+}
+.github-link {
+    margin-left: 4cm;
+}
+
 
 #public-page{
     background-color: #E9F8F9;
