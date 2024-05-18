@@ -46,11 +46,11 @@ def profile(request):
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
         profile_form = UserProfileForm(request.POST, request.FILES, instance=request.user.userprofile if hasattr(request.user, 'userprofile') else UserProfile.objects.create(user=request.user))
-        # print(request.POST.get('first_name'))
+        print(request.POST.get('first_name'))
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            return redirect('profile')
+            return redirect(f'/profile?user_id={request.user.id}')
     if request.method == 'GET':
         user_id = int(request.GET.get('user_id'))
         user = User.objects.get(id=user_id)
