@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseBadRequest
+from django.http import HttpResponseBadRequest, FileResponse
 from django.core.paginator import Paginator
+from docx import Document
+from html2text import html2text
+from io import BytesIO
 
 from .forms import WrittingForm
 from .get_result import get_writting_result
@@ -14,40 +16,36 @@ def home_page(request):
     if request.user.is_authenticated and not hasattr(request.user, 'userprofile'):
         UserProfile.objects.create(user=request.user)
 
-    if request.method == 'POST':
-        form = WrittingForm(data=request.POST)
-        if form.is_valid():
-            task = request.POST.get('task')
-            writting = request.POST.get('writting')
-            # Store task and writting in the session
-            request.session['task'] = task
-            request.session['writting'] = writting
-            request.session['new'] = True
-
-            return redirect('writting-result')
+    sample_writtings = UserWrittings.objects.filter(public_status=True).order_by('?')[:9]
         
-    return render(request, 'home_page.html', {'form': form})
+    return render(request, 'home_page.html', {'form': form, 'sample_writtings': sample_writtings})
 
 def result(request):
-    # Get task and writting from the session
-    task = request.session.get('task')
-    writting = request.session.get('writting')
-    result = get_writting_result(task, writting)
+    if request.method == 'POST':
+        writting_id = request.GET.get('writting_id')
+        return redirect(f'/result?writting_id={writting_id}')
+    else:
+        new_status = request.session.get('new')
+        if new_status:
+            task = request.session.get('task')
+            writting = request.session.get('writting')
+            result = get_writting_result(task, writting)
+            writting_data = UserWrittings(
+                user_name=request.user,
+                task=task,
+                writting=writting,
+                score=result['score'],
+                feed_back=result['feed_back'],
+                public_status=False 
+            )
+            writting_data.save()
+        else:
+            writting_id = request.GET.get('writting_id')
+            writting_data = UserWrittings.objects.get(id=writting_id)
 
-    if request.session.get('new'):
-        # Save to database
-        user_writting = UserWrittings(
-            user_name=request.user,
-            task=task,
-            writting=writting,
-            score=result['score'],
-            feed_back=result['feed_back'],
-            public_status=False 
-        )
-
-        user_writting.save()
-    context = {'result': result, 'task': task, 'writting': writting}
-    return render(request, 'writting_result.html', context)
+        form = WrittingForm(data={'writting': writting_data.writting})
+        context = {'writting_data': writting_data, 'form': form}
+        return render(request, 'writting_result.html', context)
 
 def public_writting(request):
     if request.method == 'POST':
@@ -70,25 +68,16 @@ def public_writting(request):
 
 # @login_required(login_url='user-login')
 def writting_history(request):
-    if request.method == 'POST':
-        task = request.POST.get('task')
-        writting = request.POST.get('writting')
-        # Store task and writting in the session
-        request.session['task'] = task
-        request.session['writting'] = writting
-        request.session['new'] = False
 
-        return redirect('writting-result')
+    user_id = int(request.GET.get('user_id'))
+    user = User.objects.get(id=user_id)
+
+    if request.user.id == user_id:
+        user_data = UserWrittings.objects.filter(user_name=user)
     else:
-        user_id = int(request.GET.get('user_id'))
-        user = User.objects.get(id=user_id)
+        user_data = UserWrittings.objects.filter(user_name=user, public_status=True)
 
-        if request.user.id == user_id:
-            user_data = UserWrittings.objects.filter(user_name=user)
-        else:
-            user_data = UserWrittings.objects.filter(user_name=user, public_status=True)
-
-        return render(request, 'writting_history.html', {'user_data': user_data, 'user': user})
+    return render(request, 'writting_history.html', {'user_data': user_data, 'user': user})
 
 def toggle_public(request):
     if request.method == 'POST':
@@ -97,5 +86,32 @@ def toggle_public(request):
         writting.public_status = not writting.public_status
         writting.save()
         return redirect(f"/history?user_id={writting.user_name.id}")
+    else:
+        return HttpResponseBadRequest("This URL only supports POST requests")
+
+def download_doc(request):
+    if request.method == 'POST':
+        doc = Document()
+        doc.add_heading('Task', 0)
+        doc.add_paragraph(request.POST.get('task'))
+
+        doc.add_heading('Writting', 0)
+        doc.add_paragraph(html2text(request.POST.get('writting')))
+
+        doc.add_heading('Result', level=0)
+        doc.add_heading('Score', 1)
+        doc.add_paragraph(request.POST.get('score'))
+
+        doc.add_heading('Feedback', 1)
+        doc.add_paragraph(request.POST.get('feed_back'))
+
+        # Save the Document to a BytesIO object
+        f = BytesIO()
+        doc.save(f)
+        f.seek(0)
+
+        # Create a FileResponse with the BytesIO object and set the Content-Disposition header
+        response = FileResponse(f, as_attachment=True, filename='writting_feedback.docx')
+        return response
     else:
         return HttpResponseBadRequest("This URL only supports POST requests")

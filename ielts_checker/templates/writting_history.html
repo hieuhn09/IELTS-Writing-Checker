@@ -92,7 +92,7 @@
                                                             {% endif %}
                                                         </form>
                                                         {% endif %}
-                                                        <form action="/history" class="dropdown-item" method="post">
+                                                        <form action="{% url 'writting-result' %}?writting_id={{ data.id }}" class="dropdown-item" method="post">
                                                             {% csrf_token %}
                                                             <input type="hidden" name="task" value="{{ data.task }}">
                                                             <input type="hidden" name="writting" value="{{ data.writting }}">
@@ -111,7 +111,7 @@
                 
                                             <div class="row d-flex align-items-center">
                                                 <div class="mb-4 col-8">
-                                                    <form action="/history" method="post">
+                                                    <form action="{% url 'writting-result' %}?writting_id={{ data.id }}" method="post">
                                                         {% csrf_token %}
                                                         <input type="hidden" name="task" value="{{ data.task }}">
                                                         <input type="hidden" name="writting" value="{{ data.writting }}">

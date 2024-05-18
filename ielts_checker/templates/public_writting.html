@@ -4,12 +4,7 @@
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/profile_and_history.css' %}">
 <style>
-    h6 {
-    font-weight: 500;
-    margin-bottom: 0;
-    color: gray;
-    display: inline;
-    }
+
 </style>
 {% endblock %}  
 
@@ -20,8 +15,8 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-8 col-xl-7 text-center desc">
-                            <h2 class="h1 mb-3">How can we help?</h2>
-                            <p class="mx-lg-8">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.</p>
+                            <h2 class="h1 mb-3">Need Assistance?</h2>
+                            <p class="mx-lg-8 lead mb-4">Explore our vast collection of IELTS writing submissions. Learn, get inspired, and enhance your skills. Search for specific user submissions below.</p>
                             <form class="d-flex flex-column flex-md-row mt-4"><input type="email" class="form-control me-sm-2 mb-2 mb-sm-0" placeholder="DOESN'T WORK YET!!!"> <button class="btn btn-primary flex-shrink-0" type="submit">Search user</button></form>
                         </div>
                     </div>
@@ -39,11 +34,7 @@
                                         <div class="flex-grow-1 align-items-start">
                                             <div>
                                                 <h6 class="mb-0 text-muted">
-                                                    {% if data.public_status %}
-                                                        <i class="mdi mdi-circle-medium text-success fs-3 align-middle"></i>
-                                                    {% else %}
-                                                        <i class="mdi mdi-circle-medium text-warning fs-3 align-middle"></i>
-                                                    {% endif %}
+                                                    <i class="fa fa-clock-o"></i>
                                                     <span class="team-date">{{ data.date }}</span>
                                                 </h6>
                                             </div>
@@ -54,10 +45,8 @@
                                             </a>
         
                                             <div class="dropdown-menu dropdown-menu-end">
-                                                <form action="/public" class="dropdown-item" method="post">
+                                                <form action="{% url 'writting-result' %}?writting_id={{ data.id }}" class="dropdown-item" method="post">
                                                     {% csrf_token %}
-                                                    <input type="hidden" name="task" value="{{ data.task }}">
-                                                    <input type="hidden" name="writting" value="{{ data.writting }}">
                                                     <button type="submit" class="btn btn-outline-primary" style="width: 100%;">See details</button>
                                                 </form>
             
@@ -69,7 +58,7 @@
         
                                     <div class="row d-flex align-items-center" >
                                         <div class="mb-4 col-8" style="border-right: 1px solid #ccc;">
-                                            <form action="/history" method="post">
+                                            <form action="{% url 'writting-result' %}?writting_id={{ data.id }}" method="post">
                                                 {% csrf_token %}
                                                 <input type="hidden" name="task" value="{{ data.task }}">
                                                 <input type="hidden" name="writting" value="{{ data.writting }}">
@@ -80,9 +69,9 @@
                                             
                                             <p class="text-muted mb-0 team-description">{{data.writting|truncatechars:50}}</p>
                                         </div>
-                                        <div class="col-4">
-                                            Score: {{data.score}}
-                                            
+                                        <div class="col-4 text-center">
+                                            <h4>Score</h4>
+                                            {{ data.score }}
                                         </div>
                                     </div>
         
@@ -96,7 +85,7 @@
                                                     <h6 class="username-link">{{ data.user_name.username }}</h6>
                                                 </a>
                                                 
-                                            </div>
+                                            </div>  
                                             
                                         </div><!-- end avatar group -->
                                         <div class="align-self-end">
@@ -113,7 +102,7 @@
 
                         {% endfor %}
 
-                        
+
 
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
@@ -142,7 +131,9 @@
             {% endif %} 
         </ul>
     </nav>
-
-
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/circle_progress_bar.js' %}"></script>
 {% endblock %}
