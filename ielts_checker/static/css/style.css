@@ -1,85 +1,47 @@
-body{
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: rgb(79, 31, 194);
-    color: rgb(250, 249, 249);
-}
-
-/* Header (the navbar), can add more later */
-header {
-    background-color: #222;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-home_nav{
-    font-size: 24px;
-    color: white !important;
-    font-weight: bold !important;
-}
-home_nav a {
-    text-decoration: none;
-    color: white;
-    transition: color 0.3s;
-}
-home_nav a:hover {
-    color: #00bcd4;
-}
-nav ul {
-    list-style: none;
-    display: flex;
-}
-nav li {
-    margin-right: 20px;
-}
-nav a {
-    font-size: 24px;
-    text-decoration: none;
-    color: white;
-    transition: color 0.3s;
-}
-nav a:hover {
-    color: #00bcd4; /* Change link color on hover */
-}
-.main-content {
-    padding: 20px;
-}
-/* Font h1 h2 for the body (just change it or make more style for the body part, it doesn't matter) */
-h1 {
-    font-size: 24px;
-}
-h2 {
-    font-size: 18px;
-    margin-top: 10px;
-}
-
-/* Footer */
-footer {
-    background-color: #222;
+.form-control, .dataTable-input {
+    display: block;
     width: 100%;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    bottom: 0;
+    padding: 0.875rem 1.125rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #69707a;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #c5ccd6;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.35rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-footer p {
-    margin: 0;
-    text-align: left;
-    padding-right: 20px;
-    color: white;
+
+.card-hover:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
-footer repo {
-    margin: 0;
-    text-align: right;
+.task-button:hover {
+    color: red !important;
+}   
+.username-link:hover {
+    color: red;
 }
-repo a {
-    color: white;
-    text-decoration: none;
+
+#public-page{
+    background-color: #E9F8F9;
 }
-repo a:hover {
-    color: #00bcd4;
+
+#history-page{
+    background-color: #E9F8F9;
+}
+
+#register-page{
+    background-color: #E9F8F9;
+}
+
+#login-page{
+    background-color: #E9F8F9;
+}
+
+#profile-page{
+    background-color: #E9F8F9;
 }

@@ -247,24 +247,7 @@ Band Score for Grammatical Range and Accuracy: 7
 Overall, the essay demonstrates strong proficiency in grammatical range and accuracy, contributing to its effective communication of ideas. By incorporating a wider variety of sentence structures and maintaining precise grammar and punctuation usage, the essay can further elevate its coherence and sophistication, potentially leading to an even higher band score.
 """
 
-topic = (
-    """
-  Scientists and news media are presenting ever more evidence of climate change. Governments cannot expected to solve this problem. It is the responsibility of individuals to change their lifestyles prevent further damage. What are your views?
-"""
-)
-assignment = (
-    """
-    Recently scientists worried climate change have urged governments to introduce measures to reduce the greenhouse gas emissions that are seen as its main cause. Simultaneously, politicians and environmentalists urged individuals to make changes to their lifestyles. I shall argue that governments and individuals should join responsibility for this problem. 
-
-Firstly, industry for a large proportion of greenhouse gas emissions, and this can only be controlled by government action. Measures could taken to discourage pollution, such as limiting or taxing the use of fossil fuels. Alternatively, subsidies could offered to industries to clean up their production processes. If these were adopted, I believe that businesses would regard pollution as a financial issue. 
-
-Secondly, the discussion between governments can ensure that solutions are successful. The Kyoto agreement, example, tried to reach a global agreement on how to address the problem. Without such operating, it seems to me that efforts to reduce fuel consumption are unlikely to be effective. 
-
-However, national international policies will only succeed if individuals also change their lifestyles. For example, could think more carefully about how they use energy in their homes. By using less electricity, installing efficient light bulbs and electrical appliances, or investing in solar panels, individuals can make a real difference. In addition, I think individual attitudes to transport need change. Instead of making trips by car, people could choose to walk, cycle, or take a bus. Since cars a major source of the problem, changing our behavior in this area would have a major impact. In conclusion, I would maintain only a combination of an international agreement, national policies, and changes in individual behavior will succeed in preventing further damage to the environment."""
-)
-
-
-def grade_and_comments(topic, assignment):
+def get_writting_result(task, writting):
     prompt_part = [
     """
 You are a highly skilled IELTS instructor, tasked with effectively correcting IELTS Writing Task 2 submissions.
@@ -279,8 +262,8 @@ f"""Please follow the instructions below and you must use the form provided:
     """,
     f"""
 ## Input :
-**Topic: {topic}
-**Assignment: {assignment}
+**Topic: {task}
+**Assignment: {writting}
 ## Feedback :
     """
 ]
@@ -291,5 +274,3 @@ f"""Please follow the instructions below and you must use the form provided:
         
 
     return response.text
-
-print(grade_and_comments(topic,assignment))
