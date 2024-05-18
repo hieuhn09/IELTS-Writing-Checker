@@ -4,9 +4,10 @@ from django.core.paginator import Paginator
 from docx import Document
 from html2text import html2text
 from io import BytesIO
+import markdown
 
 from .forms import WrittingForm
-from .get_result import get_writting_result
+from .get_result import get_writing_result
 from .models import UserWrittings
 from user_auth.models import UserProfile
 from django.contrib.auth.models import User
@@ -15,7 +16,18 @@ def home_page(request):
     form = WrittingForm()
     if request.user.is_authenticated and not hasattr(request.user, 'userprofile'):
         UserProfile.objects.create(user=request.user)
+    if request.method == 'POST':
+        form = WrittingForm(data=request.POST)
+        if form.is_valid():
+            task = request.POST.get('task')
+            writting = request.POST.get('writting')
+            # Store task and writting in the session
+            request.session['task'] = task
+            request.session['writting'] = writting
+            request.session['new'] = True
 
+            return redirect('writting-result')
+        
     sample_writtings = UserWrittings.objects.filter(public_status=True).order_by('?')[:9]
         
     return render(request, 'home_page.html', {'form': form, 'sample_writtings': sample_writtings})
@@ -23,13 +35,16 @@ def home_page(request):
 def result(request):
     if request.method == 'POST':
         writting_id = request.GET.get('writting_id')
+        request.session['new'] = False
         return redirect(f'/result?writting_id={writting_id}')
     else:
         new_status = request.session.get('new')
         if new_status:
             task = request.session.get('task')
             writting = request.session.get('writting')
-            result = get_writting_result(task, writting)
+            result = get_writing_result(task, html2text(writting))
+            result['feed_back'] = markdown.markdown(result['feed_back']).replace('\n', '<br>')
+
             writting_data = UserWrittings(
                 user_name=request.user,
                 task=task,
@@ -103,7 +118,7 @@ def download_doc(request):
         doc.add_paragraph(request.POST.get('score'))
 
         doc.add_heading('Feedback', 1)
-        doc.add_paragraph(request.POST.get('feed_back'))
+        doc.add_paragraph(html2text(request.POST.get('feed_back')))
 
         # Save the Document to a BytesIO object
         f = BytesIO()

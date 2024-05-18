@@ -39,9 +39,23 @@
 
             {{ form.media}}
         
-            <button class="btn btn-dark" type="submit" style="width: 100%;">Submit!</button>
-        
+            <button class="btn btn-dark" type="submit" style="width: 100%;" onclick="showLoadingModal()">Submit!</button>        
         </form>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" id="loadingModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border m-4" role="status" style="width: 5rem; height: 5rem;">
+                        
+                    </div>
+                </div>
+                <h5>Getting feedbacks...</h5>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -107,7 +121,7 @@
                                         </button>
                                     </form>
                                     
-                                    <p class="text-muted mb-0 team-description">{{data.writting|truncatechars:70}}</p>
+                                    <p class="text-muted mb-0 team-description">{{data.writting|safe|truncatechars:70}}</p>
                                 </div>
                                 <div class="col-4">
                                     Score: {{data.score}}
@@ -139,11 +153,17 @@
         </div>
     </div>
 </div>
+
+
 {% endblock %}
 
 {% block extra_js %}
 <script src="../static/js/carousel.js"></script>
 <script>
+    function showLoadingModal() {
+        $('#loadingModal').modal('show');
+    }
+    
     document.getElementById('autoGenerateButton').addEventListener('click', function() {
         event.preventDefault();
 
