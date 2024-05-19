@@ -88,9 +88,9 @@ def writting_history(request):
     user = User.objects.get(id=user_id)
 
     if request.user.id == user_id:
-        user_data = UserWrittings.objects.filter(user_name=user)
+        user_data = UserWrittings.objects.filter(user_name=user)[::-1]
     else:
-        user_data = UserWrittings.objects.filter(user_name=user, public_status=True)
+        user_data = UserWrittings.objects.filter(user_name=user, public_status=True)[::-1]
 
     return render(request, 'writting_history.html', {'user_data': user_data, 'user': user})
 

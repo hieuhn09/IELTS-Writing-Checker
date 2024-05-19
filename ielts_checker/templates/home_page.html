@@ -38,8 +38,11 @@
             </div>
 
             {{ form.media}}
-        
+            {% if user.is_authenticated %}
             <button class="btn btn-dark" type="submit" style="width: 100%;" onclick="showLoadingModal()">Submit!</button>        
+            {% else %}
+            <a class="btn btn-dark" href="{% url 'user-login' %}" style="width: 100%;">Login to submit</a>
+            {% endif %}
         </form>
     </div>
 </div>

@@ -107,6 +107,43 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 ### Report and demo video:
 [Group91-IWC-Drive](https://drive.google.com/drive/folders/1YgZCqFx44DWOMdophT5vXYoi794CH7MB?usp=drive_link)
 
+### Running the Application
+#### Without Docker
+1. Clone the repository
+```
+git clone
+```
+2. Install the required packages
+```
+pip install -r requirements.txt
+```
+3. Navigate to the project directory
+```
+cd ielts_checker
+```
+4. Run the Django server
+```
+python manage.py runserver
+```
+The application should now be running at http://localhost:8000.
+#### With Docker
+1. Install [Docker](https://www.docker.com/get-started) if you haven't already.
+
+2. Clone the repository:
+```
+git clone
+```
+3. Build the Docker image
+```
+docker build -t ielts_checker .
+```
+4. Run the Docker container
+```
+docker run -p 8000:8000 ielts_checker
+```
+
+
+
 ### User Scenarios:
 #### 1. Long's scenario : College student preparing for IELTS test
 Long, an aspiring IELTS test-taker dedicated to achieving a high band score in the Writing section, seeks an efficient and dependable tool to refine his writing abilities and receive constructive feedback on his essays. With this goal in mind, Long anticipates a seamless experience with the website. He expects to easily create a user account, providing basic information such as name, email, and password, followed by a confirmation email to verify his account upon successful registration.

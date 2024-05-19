@@ -9,7 +9,7 @@ class UserWrittings(models.Model):
         to=User,
         on_delete=models.CASCADE,
     )
-    task = models.CharField(max_length=200)
+    task = models.CharField(max_length=500)
     writting = RichTextField()
     score = models.FloatField()
     feed_back = models.TextField()

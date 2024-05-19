@@ -16,7 +16,7 @@ def user_register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('user-login')
+            return redirect('home-page')
     
     return render(request, 'register.html', {'form': form})
 
