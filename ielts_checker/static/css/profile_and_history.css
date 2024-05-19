@@ -209,3 +209,10 @@ border-bottom-color: #0061f2;
     margin-left: 1rem;
     margin-right: 1rem;
 }
+
+h6 {
+    font-weight: 500;
+    margin-bottom: 0;
+    color: gray;
+    display: inline;
+    }
