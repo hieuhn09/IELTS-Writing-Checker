@@ -11,22 +11,6 @@
 [Group91-IWC-Drive](https://drive.google.com/drive/folders/1YgZCqFx44DWOMdophT5vXYoi794CH7MB?usp=drive_link)
 
 ### Running the Application
-#### With Docker
-1. Install [Docker](https://www.docker.com/get-started) if you haven't already.
-
-2. Clone the repository:
-```
-git clone
-```
-3. Build the Docker image
-```
-docker build -t ielts_checker .
-```
-4. Run the Docker container
-```
-docker run -p 8000:8000 ielts_checker
-```
-
 #### Without Docker
 1. Clone the repository
 ```
@@ -45,6 +29,23 @@ cd ielts_checker
 python manage.py runserver
 ```
 The application should now be running at http://localhost:8000.
+#### With Docker
+1. Install [Docker](https://www.docker.com/get-started) if you haven't already.
+
+2. Clone the repository:
+```
+git clone
+```
+3. Build the Docker image
+```
+docker build -t ielts_checker .
+```
+4. Run the Docker container
+```
+docker run -p 8000:8000 ielts_checker
+```
+
+
 
 ### Introduction:
 This web application is developed to automatically grade Task 2 writing of the IELTS exam. The application will assess essays based on certain criteria and provide automatic scoring using ChatGPT API.
