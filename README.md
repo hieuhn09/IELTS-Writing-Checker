@@ -80,8 +80,6 @@
 
 This web application is developed to automatically grade and review IELTS Task 2 writing. Utilizing the Gemini API, the application evaluates essays based on specific IELTS criteria and provides automatic scoring. In addition to grading, the application offers detailed feedback on each aspect of the IELTS writing criteria, helping users improve specific areas of their writing. It also supports users in enhancing their arguments, suggesting improvements in vocabulary and grammar to further refine their essays. This comprehensive tool is designed to assist IELTS candidates in achieving higher scores by providing thorough and constructive feedback.
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `hieuhn09`, `IELTS-Writing-Checker`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `IELTS Writing Checker`, `project_description`
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Features:
