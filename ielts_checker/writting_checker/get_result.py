@@ -250,13 +250,10 @@ Overall, the essay demonstrates strong proficiency in grammatical range and accu
 # The sample to test API
 
 topic = (
-    """
-  Scientists and news media are presenting ever more evidence of climate change. Governments cannot expected to solve this problem. It is the responsibility of individuals to change their lifestyles prevent further damage. What are your views?
-"""
+    """Scientists and news media are presenting ever more evidence of climate change. Governments cannot expected to solve this problem. It is the responsibility of individuals to change their lifestyles prevent further damage. What are your views?"""
 )
 assignment = (
-    """
-    Recently scientists worried climate change have urged governments to introduce measures to reduce the greenhouse gas emissions that are seen as its main cause. Simultaneously, politicians and environmentalists urged individuals to make changes to their lifestyles. I shall argue that governments and individuals should join responsibility for this problem. 
+    """Recently scientists worried climate change have urged governments to introduce measures to reduce the greenhouse gas emissions that are seen as its main cause. Simultaneously, politicians and environmentalists urged individuals to make changes to their lifestyles. I shall argue that governments and individuals should join responsibility for this problem. 
 
 Firstly, industry for a large proportion of greenhouse gas emissions, and this can only be controlled by government action. Measures could taken to discourage pollution, such as limiting or taxing the use of fossil fuels. Alternatively, subsidies could offered to industries to clean up their production processes. If these were adopted, I believe that businesses would regard pollution as a financial issue. 
 
@@ -309,8 +306,10 @@ f"""Please follow the instructions below and you must use the form provided:
     """,
     f"""
 ## Input :
-**Topic: {topic}
-**Assignment: {assignment}
+**Topic: 
+{topic}
+**Assignment: 
+{assignment}
 ## Feedback :
 You must respond only only content of Feedback don't need ## Feedback
     """
