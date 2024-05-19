@@ -1,1 +1,7 @@
 django
+python-docx
+html2text
+markdown
+django-ckeditor
+google-generativeai
+Pillow

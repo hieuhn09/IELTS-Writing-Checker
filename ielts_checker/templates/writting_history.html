@@ -34,9 +34,9 @@
                         <div class="row my-4">
                             <div class="col-md-12">
                                 <div>
-                                    <p class="text-muted mb-2 fw-medium"><i class="mdi mdi-email-outline me-2"></i>{{ request.user.email }}
+                                    <p class="text-muted mb-2 fw-medium"><i class="mdi mdi-email-outline me-2"></i>{{ user.email }}
                                     </p>
-                                    <p class="text-muted fw-medium mb-0"><i class="mdi mdi-phone-in-talk-outline me-2"></i>{{ request.user.userprofile.phone_number }}
+                                    <p class="text-muted fw-medium mb-0"><i class="mdi mdi-phone-in-talk-outline me-2"></i>{{ user.userprofile.phone_number }}
                                     </p>
                                 </div>
                             </div><!-- end col -->
@@ -110,7 +110,7 @@
                 
                 
                                             <div class="row d-flex align-items-center">
-                                                <div class="mb-4 col-8">
+                                                <div class="mb-4 col-8" style="border-right: 1px solid #ccc;">
                                                     <form action="{% url 'writting-result' %}?writting_id={{ data.id }}" method="post">
                                                         {% csrf_token %}
                                                         <input type="hidden" name="task" value="{{ data.task }}">
@@ -121,8 +121,9 @@
                                                     </form>
                                                     <p class="text-muted mb-0 team-description">{{data.writting|safe|truncatechars:50}}</p>
                                                 </div>
-                                                <div class="col-4">
-                                                    Score: {{data.score}}
+                                                <div class="col-4 text-center">
+                                                    <h4>Score</h4>
+                                                    {{ data.score }}
                                                 </div>
                                             </div>
                 

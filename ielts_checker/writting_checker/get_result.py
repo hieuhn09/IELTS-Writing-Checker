@@ -289,7 +289,7 @@ def calculate_overall_score(text):
             overall_score = int(average_score)
         
         return overall_score
-    return None
+    return 0.0
 
 def get_writing_feedback(topic, assignment):
     prompt_part = [
@@ -298,10 +298,10 @@ You are a highly skilled IELTS instructor, tasked with effectively correcting IE
 Your responses should be clear and easily understandable for students who are learning English.
 
     """,
-f"""Please follow the instructions below and you must use the form provided:
+f"""Please follow the instructions below and you must include every parts from the form provided (Vocabulary and Grammar Enhancement, Strengthening the Argument, Task Response, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy):
     {essay_prompt_1}
     """,
-f"""Please follow the instructions below and you must use the form provided:
+f"""Please follow the instructions below and you must include every parts from the form provided (Vocabulary and Grammar Enhancement, Strengthening the Argument, Task Response, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy):
     {essay_prompt_2}
     """,
     f"""
@@ -330,8 +330,3 @@ def get_writing_result(topic,assignment):
         "score" : overall_score,
         "feed_back" : feedback,
     }
-
-feedback = get_writing_feedback(topic=topic,assignment=assignment)
-
-print(feedback)
-print(calculate_overall_score(feedback))
