@@ -1,19 +1,113 @@
-# IELTS Writing Checker
-### Members: 
+<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+<a name="readme-top"></a>
+<!--
+*** Thanks for checking out the Best-README-Template. If you have a suggestion
+*** that would make this better, please fork the repo and create a pull request
+*** or simply open an issue with the tag "enhancement".
+*** Don't forget to give the project a star!
+*** Thanks again! Now go create something AMAZING! :D
+-->
 
-- Nguyen Nam Duong - 22022512
-- Duong Minh Duc - 22022606
-- Hoang Dang Khoa - 22022548
-- Nguyen Cong Hieu - 22022510
-- Long Tri Thai Son - 22022653
+
+
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+
+
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/hieuhn09/IELTS-Writing-Checker">
+    <img src="images/logo.png" alt="Logo" width="400" height="400">
+  </a>
+
+<h1 align="center">IELTS Writing Checker</h1>
+
+  <p align="center">
+    Automated IELTS essay grading
+    <br />
+    <a href="https://github.com/hieuhn09/IELTS-Writing-Checker"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/hieuhn09/IELTS-Writing-Checker">View Demo</a>
+    ·
+    <a href="https://github.com/hieuhn09/IELTS-Writing-Checker/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    ·
+    <a href="https://github.com/hieuhn09/IELTS-Writing-Checker/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+  </p>
+</div>
+
+
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#introduction">Introduction</a>
+    <li><a href="#features">Features</a>
+    <li><a href="#report-and-demo-video">Report and demo video</a>
+    <li><a href="#user-scenarios">User Scenarios</a></li>
+    <li><a href="#user-stories">User Stories</a></li>
+    <li><a href="#built-with">Built With</a></li>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+
+
+
+<!-- ABOUT THE PROJECT -->
+## Introduction
+
+[![Product Name Screen Shot][product-screenshot]](<img src="images/screenshot.png" alt="Logo">)
+
+This web application is developed to automatically grade and review IELTS Task 2 writing. Utilizing the Gemini API, the application evaluates essays based on specific IELTS criteria and provides automatic scoring. In addition to grading, the application offers detailed feedback on each aspect of the IELTS writing criteria, helping users improve specific areas of their writing. It also supports users in enhancing their arguments, suggesting improvements in vocabulary and grammar to further refine their essays. This comprehensive tool is designed to assist IELTS candidates in achieving higher scores by providing thorough and constructive feedback.
+
+Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `hieuhn09`, `IELTS-Writing-Checker`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `IELTS Writing Checker`, `project_description`
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Features:
+- **Submission**: 
+    *  Users can submit their essays in text format through the text input box.
+    * The essay will be automatically graded, and users will be immediately redirected to the results page.
+- **Account Creation and Essay Storage**: 
+    * Users can create an account to save and track the results of their essay submissions.\
+    * Users can review their essay scores, delete their essay history, and set their essays as public or private.
+- **Feedback on Essays**: 
+    * The application provides detailed feedback on each essay, highlighting strengths and areas for improvement.
+    * Users receive constructive criticism to enhance their writing skills and improve future submissions.
+- **Referencing Essays**: 
+    * Users can browse and reference essays that other users have set as public.
+    * This feature allows users to learn from others' writing and gain insights into different writing styles and approaches.
+- **Random Prompt Selection**:
+    * The application offers a feature to generate a random writing prompt for users.
+    * Users have the option to change the prompt if they wish to choose a different topic.
 
 ### Report and demo video:
 [Group91-IWC-Drive](https://drive.google.com/drive/folders/1YgZCqFx44DWOMdophT5vXYoi794CH7MB?usp=drive_link)
 
-### Introduction:
-This web application is developed to automatically grade Task 2 writing of the IELTS exam. The application will assess essays based on certain criteria and provide automatic scoring using ChatGPT API.
-
-### User scenarios:
+### User Scenarios:
 #### 1. Long's scenario : College student preparing for IELTS test
 Long, an aspiring IELTS test-taker dedicated to achieving a high band score in the Writing section, seeks an efficient and dependable tool to refine his writing abilities and receive constructive feedback on his essays. With this goal in mind, Long anticipates a seamless experience with the website. He expects to easily create a user account, providing basic information such as name, email, and password, followed by a confirmation email to verify his account upon successful registration.
 
@@ -28,7 +122,7 @@ Upon logging in, Ms. Trang expects to navigate to the essay grading section of t
 
 Furthermore, Ms. Trang seeks the capability to generate comprehensive reports summarizing her students' performance over time. These reports will empower her to track progress, identify areas of improvement, and tailor her teaching approach to meet the unique needs of each student effectively. By fulfilling Ms. Trang's expectations for efficiency, flexibility, and insightful feedback, the website serves as an invaluable tool in her mission to support her students' growth and success in the IELTS exam.
 
-### User stories
+### User Stories
 From the scenarios above, we have user stories:
 1. For Long's Scenario:
 - As a dedicated IELTS test-taker, I want to create a user account easily, so that I can access the website's features and track my progress effectively.
@@ -44,11 +138,27 @@ From the scenarios above, we have user stories:
 - As a facilitator of student growth, I want to provide detailed feedback on essays, so that I can help my students understand their strengths and areas for improvement.
 - As an educator monitoring progress, I want the ability to generate reports summarizing students' performance, so that I can track their progress over time and adapt my teaching strategies accordingly.
 
-### Features:
-- **User Accounts**: Users can creat account, save and track their progress over time.
-- **Submit Essays**: Users can submit their essays for grading.
-- **Automatic Grading**: The application uses the ChatGPT API to automatically grade the essays based on IELTS standards.
-- **Detailed Feedback**: Provide detailed feedback on each essay, highlighting areas of strength and areas for improvement.
+
+
+### Built With
+
+* [![Django][Django-badge]][Django-url]
+* [![Docker][Docker-badge]][Docker-url]
+* [![HTML][HTML-badge]][HTML-url]
+* ![Angular][CSS-badge]
+* ![Java Script][Java Script-badge]
+* [![Github][Github-badge]][Github-url]
+* [![Git][Git-badge]][Git-url]
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
 
 ### Installation:
 1. Clone this repo
@@ -56,8 +166,66 @@ From the scenarios above, we have user stories:
 3. cd  into ```ielts_checker```
 4. Run server: ```python manage.py runserver```
 
-### Tech Stack:
-- Framework: Django
-- Deployment: Docker, Microsoft Azure
-- Frontend: HTML, CSS, JavaScript
-- Version Control: Git, GitHub
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+See `CONTRIBUTING.md` for more information.
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- CONTACT -->
+## Contact
+
+Hieu Nguyen - 22022510@vnu.edu.vn
+
+Project Link: [https://github.com/hieuhn09/IELTS-Writing-Checker](https://github.com/hieuhn09/IELTS-Writing-Checker)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/hieuhn09/IELTS-Writing-Checker.svg?style=for-the-badge
+[contributors-url]: https://github.com/hieuhn09/IELTS-Writing-Checker/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/hieuhn09/IELTS-Writing-Checker?style=for-the-badge
+[forks-url]: https://github.com/hieuhn09/IELTS-Writing-Checker/forks
+[stars-shield]: https://img.shields.io/github/stars/hieuhn09/IELTS-Writing-Checker.svg?style=for-the-badge
+[stars-url]: https://github.com/hieuhn09/IELTS-Writing-Checker/stargazers
+[issues-shield]: https://img.shields.io/github/issues/hieuhn09/IELTS-Writing-Checker.svg?style=for-the-badge
+[issues-url]: https://github.com/hieuhn09/IELTS-Writing-Checker/issues
+[license-shield]: https://img.shields.io/github/license/hieuhn09/IELTS-Writing-Checker.svg?style=for-the-badge
+[license-url]: https://github.com/hieuhn09/IELTS-Writing-Checker/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/linkedin_username
+[product-screenshot]: images/screenshot.png
+[Django-badge]: https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white
+[Django-url]: https://www.djangoproject.com/
+[Docker-badge]: https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white
+[Docker-url]: https://www.docker.com/
+[HTML-badge]: https://img.shields.io/badge/HTML-E44D26?style=for-the-badge&logo=html&logoColor=white
+[HTML-url]: https://html.com/
+[CSS-badge]: https://img.shields.io/badge/CSS-264DE4?style=for-the-badge&logo=css&logoColor=white
+[Java Script-badge]: https://img.shields.io/badge/JAVA%20SCRIPT-F0DB4F?style=for-the-badge&logo=javascript&logoColor=white
+[Github-badge]: https://img.shields.io/badge/GITHUB-151013?style=for-the-badge&logo=github&logoColor=white
+[Github-url]: https://github.com/
+[Git-badge]: https://img.shields.io/badge/GIT-F1502F?style=for-the-badge&logo=git&logoColor=white
+[Git-url]: https://git-scm.com/
