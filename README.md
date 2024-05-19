@@ -224,10 +224,10 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 - Nguyen Cong Hieu - 22022510@vnu.edu.vn
-- Nguyen Nam Duong – 22022512@vnu.edu.vn
-- Duong Minh Duc – 22022606@vnu.edu.vn
-- Hoang Dang Khoa – 22022548@vnu.edu.vn
-- Long Tri Thai Son – 22022653@vnu.edu.vn
+- Nguyen Nam Duong - 22022512@vnu.edu.vn
+- Duong Minh Duc - 22022606@vnu.edu.vn
+- Hoang Dang Khoa - 22022548@vnu.edu.vn
+- Long Tri Thai Son - 22022653@vnu.edu.vn
 
 Project Link: [https://github.com/hieuhn09/IELTS-Writing-Checker](https://github.com/hieuhn09/IELTS-Writing-Checker)
 
